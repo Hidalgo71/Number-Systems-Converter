@@ -57,6 +57,15 @@ void decToHex(int decHex)
 
 void decToBin(int decBin)
 {
+	int remainder;
+	printf("Enter The Decimal Number:");														
+	scanf_s("%d", &decBin);
+	while (decBin >= 1)
+	{
+		remainder = decBin % 2;
+		printf("%d", remainder);
+		decBin = decBin / 2;
+	}
 
 }
 void hexToDec(int hexDec)
