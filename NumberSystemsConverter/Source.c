@@ -10,7 +10,7 @@ void binToHex(int binHex);
 int main()
 {
 	int select;
-	int decHex,decBin, hexDec, hexBin, binDec, binHex;
+	int decHex = 0 , decBin = 0, hexDec = 0, hexBin = 0, binDec = 0, binHex = 0;
 
 	printf("1)Decimal To Hexadecimal\n");
 	printf("2)Decimal To Binary\n");
@@ -19,7 +19,7 @@ int main()
 	printf("5)Binary To Decimal\n");
 	printf("6)Binary To Hexadecimal\n");
 
-	printf("Select Your Convert...");
+	printf("Select Your Convert: ");
 	scanf_s("%d", &select);
 
 	switch (select)
@@ -52,7 +52,22 @@ int main()
 }
 void decToHex(int decHex)
 {
-	
+	int remainder, quot, i;
+	int remArray[50];
+	printf("Enter The Decimal Number:");
+	scanf_s("%d", &decHex);
+	while (remainder == 0)
+	{
+		quot = decHex / 16;
+		for ( i = 0; i < ; i++)
+		{
+
+		}
+		remArray[i]= decHex % 16;
+		decHex = quot;
+	}
+
+
 }
 
 void decToBin(int decBin)
@@ -78,7 +93,7 @@ void hexToBin(int hexBin)
 }
 void binToDec(int binDec)
 {
-
+	
 }
 void binToHex(int binHex)
 {
