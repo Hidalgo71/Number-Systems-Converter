@@ -82,7 +82,7 @@ void hexToDec(int hexDec)
 	char hexadecimal[30];
 	int i, j, power = 0, digit;
 
-	printf("Enter a Hexadecimal Number\n");
+	printf("Enter a Hexadecimal Number:\n");
 	scanf("%s", hexadecimal);
 
 	// Converting hexadecimal number to decimal number
@@ -96,7 +96,7 @@ void hexToDec(int hexDec)
 		power++;
 	}
 
-	printf("Decimal Number : %ld\n", decimalNumber);
+	printf("Decimal Number Is: %ld\n", decimalNumber);
 }
 void hexToBin(int hexBin)
 {
@@ -104,7 +104,7 @@ void hexToBin(int hexBin)
 	int i = 0;
 
 	//Input hexadecimal number from user	
-	printf("Enter any hexadecimal number: ");
+	printf("Enter Hexadecimal Number: ");
 	scanf("%s", hex);
 
 	//Extract first digit and find binary of each hex digit
@@ -168,17 +168,17 @@ void hexToBin(int hexBin)
 			strcat(bin, "1111");
 			break;
 		default:
-			printf("Invalid hexadecimal input.");
+			printf("Invalid Enter!");
 		}
 	}
-	printf("Binary number = %s\n", bin);
+	printf("Binary Number: %s\n", bin);
 	
 }
 void binToDec(int binDec)
 {
 	long int binaryNumber, decimalNumber = 0, j = 1, remainder;
 
-	printf("Enter any number any binary number: ");
+	printf("Enter Binary number: ");
 	scanf("%ld", &binaryNumber);
 
 	while (binaryNumber != 0) {
@@ -188,13 +188,13 @@ void binToDec(int binDec)
 		binaryNumber = binaryNumber / 10;
 	}
 
-	printf("Equivalent decimal value: %ld\n", decimalNumber);
+	printf("Decimal Number Is: %ld\n", decimalNumber);
 }
 void binToHex(int binHex)
 {
 	long int binaryNumber, hexadecimalNumber = 0, j = 1, remainder;
 
-	printf("Enter any number any binary number: ");
+	printf("Enter Binary Number: ");
 	scanf("%ld", &binaryNumber);
 
 	while (binaryNumber != 0) {
@@ -204,5 +204,5 @@ void binToHex(int binHex)
 		binaryNumber = binaryNumber / 10;
 	}
 
-	printf("Equivalent hexadecimal value: %lX", hexadecimalNumber);
+	printf("Hexadecimal Number Is: %lX\n", hexadecimalNumber);
 }
