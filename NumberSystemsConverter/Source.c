@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <math.h>
+#include <string.h>  
 
 void decToHex(int decHex);
 void decToBin(int decBin);
@@ -10,7 +12,7 @@ void binToHex(int binHex);
 int main()
 {
 	int select;
-	int decHex = 0 , decBin = 0, hexDec = 0, hexBin = 0, binDec = 0, binHex = 0;
+	int decHex = 0, decBin = 0, hexDec = 0, hexBin = 0, binDec = 0, binHex = 0;
 
 	printf("1)Decimal To Hexadecimal\n");
 	printf("2)Decimal To Binary\n");
@@ -21,6 +23,7 @@ int main()
 
 	printf("Select Your Convert: ");
 	scanf_s("%d", &select);
+	system("cls");
 
 	switch (select)
 	{
@@ -46,56 +49,68 @@ int main()
 		printf("Invalid Enter!\n");
 		break;
 	}
-	
+
 	system("PAUSE");
 	return 0;
 }
 void decToHex(int decHex)
 {
-	int remainder, quot, i;
-	int remArray[50];
 	printf("Enter The Decimal Number:");
 	scanf_s("%d", &decHex);
-	while (remainder == 0)
-	{
-		quot = decHex / 16;
-		for ( i = 0; i < ; i++)
-		{
-
-		}
-		remArray[i]= decHex % 16;
-		decHex = quot;
-	}
-
+	printf("Hexadecimal Number Is: %x\n", decHex);
 
 }
 
 void decToBin(int decBin)
 {
 	int remainder;
-	printf("Enter The Decimal Number:");														
+	printf("Enter The Decimal Number:");
 	scanf_s("%d", &decBin);
 	while (decBin >= 1)
 	{
 		remainder = decBin % 2;
-		printf("%d", remainder);
+		printf("%d\n", remainder);
 		decBin = decBin / 2;
 	}
 
 }
 void hexToDec(int hexDec)
 {
+	long long decimalNumber = 0;
+	char hexDigits[16] = { '0', '1', '2', '3', '4', '5', '6', '7', '8',
+		'9', 'A', 'B', 'C', 'D', 'E', 'F' };
+	char hexadecimal[30];
+	int i, j, power = 0, digit;
 
+	printf("Enter a Hexadecimal Number\n");
+	scanf("%s", hexadecimal);
+
+	/* Converting hexadecimal number to decimal number */
+	for (i = strlen(hexadecimal) - 1; i >= 0; i--) {
+		/*search currect character in hexDigits array */
+		for (j = 0; j<16; j++) {
+			if (hexadecimal[i] == hexDigits[j]) {
+				decimalNumber += j*pow(16, power);
+			}
+		}
+		power++;
+	}
+
+	printf("Decimal Number : %ld\n", decimalNumber);
 }
 void hexToBin(int hexBin)
 {
-
+	
 }
 void binToDec(int binDec)
 {
-	
+	printf("Enter The Decimal Number:");
+	scanf_s("%d", &binDec);
+	printf("Hexadecimal Number Is: %n\n", binDec);
 }
 void binToHex(int binHex)
 {
-
+	printf("Enter The Decimal Number:");
+	scanf_s("%d", &binHex);
+	printf("Hexadecimal Number Is: %x\n", binHex);
 }
