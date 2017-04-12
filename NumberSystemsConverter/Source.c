@@ -85,9 +85,9 @@ void hexToDec(int hexDec)
 	printf("Enter a Hexadecimal Number\n");
 	scanf("%s", hexadecimal);
 
-	/* Converting hexadecimal number to decimal number */
+	// Converting hexadecimal number to decimal number
 	for (i = strlen(hexadecimal) - 1; i >= 0; i--) {
-		/*search currect character in hexDigits array */
+		//search currect character in hexDigits array
 		for (j = 0; j<16; j++) {
 			if (hexadecimal[i] == hexDigits[j]) {
 				decimalNumber += j*pow(16, power);
@@ -100,17 +100,109 @@ void hexToDec(int hexDec)
 }
 void hexToBin(int hexBin)
 {
+	char hex[17], bin[65] = "";
+	int i = 0;
+
+	//Input hexadecimal number from user	
+	printf("Enter any hexadecimal number: ");
+	scanf("%s", hex);
+
+	//Extract first digit and find binary of each hex digit
+	
+	for (i = 0; hex[i] != '\0'; i++)
+	{
+		switch (hex[i])
+		{
+		case '0':
+			strcat(bin, "0000");
+			break;
+		case '1':
+			strcat(bin, "0001");
+			break;
+		case '2':
+			strcat(bin, "0010");
+			break;
+		case '3':
+			strcat(bin, "0011");
+			break;
+		case '4':
+			strcat(bin, "0100");
+			break;
+		case '5':
+			strcat(bin, "0101");
+			break;
+		case '6':
+			strcat(bin, "0110");
+			break;
+		case '7':
+			strcat(bin, "0111");
+			break;
+		case '8':
+			strcat(bin, "1000");
+			break;
+		case '9':
+			strcat(bin, "1001");
+			break;
+		case 'a':
+		case 'A':
+			strcat(bin, "1010");
+			break;
+		case 'b':
+		case 'B':
+			strcat(bin, "1011");
+			break;
+		case 'c':
+		case 'C':
+			strcat(bin, "1100");
+			break;
+		case 'd':
+		case 'D':
+			strcat(bin, "1101");
+			break;
+		case 'e':
+		case 'E':
+			strcat(bin, "1110");
+			break;
+		case 'f':
+		case 'F':
+			strcat(bin, "1111");
+			break;
+		default:
+			printf("Invalid hexadecimal input.");
+		}
+	}
+	printf("Binary number = %s\n", bin);
 	
 }
 void binToDec(int binDec)
 {
-	printf("Enter The Decimal Number:");
-	scanf_s("%d", &binDec);
-	printf("Hexadecimal Number Is: %n\n", binDec);
+	long int binaryNumber, decimalNumber = 0, j = 1, remainder;
+
+	printf("Enter any number any binary number: ");
+	scanf("%ld", &binaryNumber);
+
+	while (binaryNumber != 0) {
+		remainder = binaryNumber % 10;
+		decimalNumber = decimalNumber + remainder*j;
+		j = j * 2;
+		binaryNumber = binaryNumber / 10;
+	}
+
+	printf("Equivalent decimal value: %ld\n", decimalNumber);
 }
 void binToHex(int binHex)
 {
-	printf("Enter The Decimal Number:");
-	scanf_s("%d", &binHex);
-	printf("Hexadecimal Number Is: %x\n", binHex);
+	long int binaryNumber, hexadecimalNumber = 0, j = 1, remainder;
+
+	printf("Enter any number any binary number: ");
+	scanf("%ld", &binaryNumber);
+
+	while (binaryNumber != 0) {
+		remainder = binaryNumber % 10;
+		hexadecimalNumber = hexadecimalNumber + remainder*j;
+		j = j * 2;
+		binaryNumber = binaryNumber / 10;
+	}
+
+	printf("Equivalent hexadecimal value: %lX", hexadecimalNumber);
 }
